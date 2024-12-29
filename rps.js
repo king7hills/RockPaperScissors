@@ -16,4 +16,15 @@ function getComputerChoice() {
     else return scissors;
 }
 
-//console.log(getComputerChoice())
+function getHumanChoice(input) {
+    let choice = prompt("Please type rock, paper, or scissors.")
+    if (choice.toLowerCase() == rock) {
+        return rock;
+    } else if (choice.toLowerCase() == paper) {
+        return paper;
+    } else if (choice.toLowerCase() == scissors) {
+        return scissors;
+    } else return "Please refresh and try again"
+}
+
+console.log(getHumanChoice())
