@@ -19,3 +19,4 @@ function ran solved the issue.
 
 The game works now. It is by no means spectacular, but it completes the assignment. I am following the recommendation to not embellish this project
 and save my time and energy for portfolio pieces.
+Completed on 12.28.24
