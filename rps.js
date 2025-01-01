@@ -1,5 +1,4 @@
 //This is a player vs computer RPS game
-//The game is currently played within the console
 
 //Define our string variables aka choices
 const rock = "rock";
@@ -21,65 +20,62 @@ const rockBut = document.querySelector('#rock');
 const paperBut = document.querySelector('#paper');
 const scissorsBut = document.querySelector('#scissors');
 
-/*Function for the player's choice
-function getHumanChoice(input) {
-    let choice = prompt("Please type rock, paper, or scissors.")
-    if (choice.toLowerCase() == rock) {
-        return rock;
-    } else if (choice.toLowerCase() == paper) {
-        return paper;
-    } else if (choice.toLowerCase() == scissors) {
-        return scissors;
-    } else return "Please refresh and try again"
-}*/
-
 //Score variables
 let humanScore = 0;
 let computerScore = 0;
+
+//message display variable
+const display = document.querySelector('#message');
 
 //Round function. Compares choices, awards winner a point, and alerts user to who won.
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == rock && computerChoice == scissors) {
         humanScore = humanScore + 1;
-        console.log('Great! You win this round.')
+        display.textContent = 'Great! You win this round.';
     } else if (humanChoice == paper && computerChoice == rock) {
         humanScore = humanScore + 1;
-        console.log('Great! You win this round.')
+        display.textContent = 'Great! You win this round.';
     } else if (humanChoice == scissors && computerChoice == paper) {
         humanScore = humanScore + 1;
-        console.log('Great! You win this round.')
+        display.textContent = 'Great! You win this round.';
     } else if (humanChoice == rock && computerChoice == paper) {
         computerScore = computerScore + 1;
-        console.log('Yikes! You lose this round.')
+        display.textContent = 'Yikes! You lose this round.';
     } else if (humanChoice == paper && computerChoice == scissors) {
         computerScore = computerScore + 1;
-        console.log('Yikes! You lose this round.')
+        display.textContent = 'Yikes! You lose this round.';
     } else if (humanChoice == scissors && computerChoice == rock) {
         computerScore = computerScore + 1;
-        console.log('Yikes! You lose this round.')
-    } else {console.log("Tie! Go again.")}
+        display.textContent = 'Yikes! You lose this round.';
+    } else {display.textContent = "Tie! Go again.";}
 }
 
-rockBut.addEventListener("click", () => playRound(rock, getComputerChoice()));
-paperBut.addEventListener("click", () => playRound(paper, getComputerChoice()));
-scissorsBut.addEventListener("click", () => playRound(scissors, getComputerChoice()));
+//Appends score divs and updates with proper score
+const hScore = document.querySelector('#humanScore');
+const cScore = document.querySelector('#computerScore');
+function updateScore () {
+    hScore.textContent = "Human Score: " + humanScore;
+    cScore.textContent = "Computer Score: " + computerScore;
+}
+updateScore()
 
-/*Game function
-function playGame () {
-    let roundsWon = humanScore + computerScore;
-    while (roundsWon < 5) {
-        //Store choices as variables
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        //Play a round
-        playRound(humanSelection, computerSelection);
-        //updates roundsWon within the while loop. Ties are not counted (just like real life)
-        roundsWon = humanScore + computerScore;
-        //used for debug console.log(roundsWon)
-    };
-    if (humanScore > computerScore) {
-        console.log("You win! :)");
-    } else console.log("You lose. :(");
-}*/
+//checks for a winner
+function gameCheck() {
+    if (humanScore == 5 && computerScore < humanScore) {
+        display.textContent = "You WIN!";
+        alert("You WIN!");
+    } else if (computerScore == 5 && humanScore < computerScore) {
+        display.textContent = "You LOSE!";
+        alert("You LOSE!");
+    }
+}
 
-//playGame()
+//function wrapper to easily call both score components
+function scoreSystem() {
+    updateScore();
+    gameCheck();
+}
+
+rockBut.addEventListener("click", () => {playRound(rock, getComputerChoice()); scoreSystem()});
+paperBut.addEventListener("click", () => {playRound(paper, getComputerChoice()); scoreSystem()});
+scissorsBut.addEventListener("click", () => {playRound(scissors, getComputerChoice()); scoreSystem()});

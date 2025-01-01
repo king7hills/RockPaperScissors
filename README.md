@@ -23,3 +23,8 @@ and save my time and energy for portfolio pieces.
 Completed on 12.28.24
 
 1.1.25 Begin work on GUI. Saved as a new branch.
+Added clickable buttons for the user input. Each button calls the playRound function and displays on the page the result of the round.
+Created a more robut system for score tracking and game win status. A wrapper function calls the score update function, then the win status function.
+Each round calls the score system to update scores and check for win status.
+
+Obviously, a lot more could go into this game in terms of a prettier user interface and features, but this current iteration fulfills the requirements of the assignment.
