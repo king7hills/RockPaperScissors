@@ -21,3 +21,5 @@ The game works now. It is by no means spectacular, but it completes the assignme
 and save my time and energy for portfolio pieces.
 
 Completed on 12.28.24
+
+1.1.25 Begin work on GUI. Saved as a new branch.

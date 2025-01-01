@@ -55,7 +55,7 @@ function playRound(humanChoice, computerChoice) {
     } else {console.log("Tie! Go again.")}
 }
 
-//Game function
+/*Game function
 function playGame () {
     let roundsWon = humanScore + computerScore;
     while (roundsWon < 5) {
@@ -71,6 +71,6 @@ function playGame () {
     if (humanScore > computerScore) {
         console.log("You win! :)");
     } else console.log("You lose. :(");
-}
+}*/
 
-playGame()
+//playGame()
