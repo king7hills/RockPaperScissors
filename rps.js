@@ -16,7 +16,12 @@ function getComputerChoice() {
     else return scissors;
 }
 
-//Function for the player's choice
+//button linking
+const rockBut = document.querySelector('#rock');
+const paperBut = document.querySelector('#paper');
+const scissorsBut = document.querySelector('#scissors');
+
+/*Function for the player's choice
 function getHumanChoice(input) {
     let choice = prompt("Please type rock, paper, or scissors.")
     if (choice.toLowerCase() == rock) {
@@ -26,7 +31,7 @@ function getHumanChoice(input) {
     } else if (choice.toLowerCase() == scissors) {
         return scissors;
     } else return "Please refresh and try again"
-}
+}*/
 
 //Score variables
 let humanScore = 0;
@@ -55,6 +60,10 @@ function playRound(humanChoice, computerChoice) {
     } else {console.log("Tie! Go again.")}
 }
 
+rockBut.addEventListener("click", () => playRound(rock, getComputerChoice()));
+paperBut.addEventListener("click", () => playRound(paper, getComputerChoice()));
+scissorsBut.addEventListener("click", () => playRound(scissors, getComputerChoice()));
+
 /*Game function
 function playGame () {
     let roundsWon = humanScore + computerScore;
@@ -67,7 +76,7 @@ function playGame () {
         //updates roundsWon within the while loop. Ties are not counted (just like real life)
         roundsWon = humanScore + computerScore;
         //used for debug console.log(roundsWon)
-    }
+    };
     if (humanScore > computerScore) {
         console.log("You win! :)");
     } else console.log("You lose. :(");
